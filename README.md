@@ -8,11 +8,11 @@ A full-stack web app for collecting, trading, and managing a digital sticker alb
 
 ## 📸 Screenshots
 
-![Paninarr Screenshots](https://raw.githubusercontent.com/hamzamix/90secwc/refs/heads/main/Screenshots/home.png)
+![Paninarr Screenshots](https://raw.githubusercontent.com/hamzamix/Paninarr/refs/heads/main/Screenshots/home.png)
 
-![Paninarr Screenshots](https://raw.githubusercontent.com/hamzamix/90secwc/refs/heads/main/Screenshots/catalog.png)
+![Paninarr Screenshots](https://raw.githubusercontent.com/hamzamix/Paninarr/refs/heads/main/Screenshots/catalog.png)
 
-![Paninarr Screenshots](https://raw.githubusercontent.com/hamzamix/90secwc/refs/heads/main/Screenshots/quiz.png)
+![Paninarr Screenshots](https://raw.githubusercontent.com/hamzamix/Paninarr/refs/heads/main/Screenshots/quiz.png)
 
 ## Features
 
