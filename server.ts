@@ -851,6 +851,10 @@ app.post('/api/auth/login', (req, res) => {
   res.json({ user });
 });
 
+app.get('/api/', (req, res) => {
+  res.json({ ok: true, db: !!db, stickers: db.prepare('SELECT COUNT(*) as c FROM stickers').get() });
+});
+
 app.get('/api/me', (req, res) => {
     // Basic auth logic via Header for simplicity in prototype
     const userId = req.headers['x-user-id'] as string;
@@ -2382,6 +2386,17 @@ async function startServer() {
 
 if (!process.env.VERCEL) {
   startServer();
+}
+
+// Vercel SPA catch-all (production only)
+if (process.env.VERCEL) {
+  const distPath = path.join(process.cwd(), 'dist');
+  if (fs.existsSync(distPath)) {
+    app.use(express.static(distPath));
+    app.get('*', (req, res) => {
+      res.sendFile(path.join(distPath, 'index.html'));
+    });
+  }
 }
 
 export default app;
