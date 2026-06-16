@@ -2,7 +2,6 @@ import express from "express";
 import path from "path";
 import 'dotenv/config';
 import Database from "better-sqlite3";
-import { createServer as createViteServer } from "vite";
 import fs from "fs";
 
 const app = express();
@@ -11,9 +10,9 @@ app.use(express.json({ limit: '50mb' }));
 app.use(express.static(path.join(process.cwd(), 'public')));
 
 // Initialize SQLite database
-const dbDir = path.join(process.cwd(), 'data');
+const dbDir = process.env.VERCEL ? '/tmp/data' : path.join(process.cwd(), 'data');
 if (!fs.existsSync(dbDir)) {
-  fs.mkdirSync(dbDir);
+  fs.mkdirSync(dbDir, { recursive: true });
 }
 const dbPath = path.join(dbDir, 'worldcup.db');
 const db = new Database(dbPath);
@@ -2362,6 +2361,7 @@ app.post('/api/admin/set-winner', (req, res) => {
 
 async function startServer() {
   if (process.env.NODE_ENV !== "production") {
+    const { createServer: createViteServer } = await import("vite");
     const vite = await createViteServer({
       server: { middlewareMode: true },
       appType: "spa",
@@ -2380,4 +2380,8 @@ async function startServer() {
   });
 }
 
-startServer();
+if (!process.env.VERCEL) {
+  startServer();
+}
+
+export default app;
