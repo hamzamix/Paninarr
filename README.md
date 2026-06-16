@@ -1,8 +1,13 @@
 <p align="center"> Paninarr — 2026 FIFA World Cup Sticker Album </p>
 
+
+
 <p align="center">
   <img src="./Logo.png" alt="90secwc Logo" width="120" height="120">
 </p>
+
+
+
 
 A full-stack web app for collecting, trading, and managing a digital sticker album for the **2026 FIFA World Cup**. Includes real player squads from all 48 qualified nations, FIFA API image resolution, admin photo management, a bilingual quiz, pack opening, trade system, and a live tournament simulation.
 
