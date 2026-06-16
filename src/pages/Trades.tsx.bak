@@ -1,0 +1,425 @@
+import React, { useState, useEffect } from 'react';
+import { useSearchParams, useNavigate } from 'react-router-dom';
+import { Search, ArrowRightLeft, Sparkles, RefreshCw } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
+import { api } from '../lib/api';
+import { Button } from '../components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '../components/ui/card';
+import { Input } from '../components/ui/input';
+import { toast } from 'sonner';
+import { getStickerPhotoUrl } from '../utils/stickerImages';
+
+type Sticker = {
+    id: string;
+    sticker_id: string;
+    name: string;
+    category: string;
+    rarity: string;
+    is_duplicate: number;
+    country?: string;
+    description?: string;
+    image?: string;
+}
+
+const TEAM_FLAGS: { [key: string]: string } = {
+    'United States': '🇺🇸',
+    'Mexico': '🇲🇽',
+    'Canada': '🇨🇦',
+    'Argentina': '🇦🇷',
+    'Brazil': '🇧🇷',
+    'France': '🇫🇷',
+    'England': '🏴󠁧󠁢󠁥󠁮󠁧󠁿',
+    'Spain': '🇪🇸',
+    'Portugal': '🇵🇹',
+    'Germany': '🇩🇪',
+    'Netherlands': '🇳🇱',
+    'Norway': '🇳🇴',
+    'Belgium': '🇧🇪',
+    'Uruguay': '🇺🇾',
+    'Colombia': '🇨🇴',
+    'Morocco': '🇲🇦',
+    'Senegal': '🇸🇳',
+    'Japan': '🇯🇵',
+    'South Korea': '🇰🇷',
+    'Australia': '🇦🇺',
+    'Croatia': '🇭🇷',
+    'Switzerland': '🇨🇭',
+    'Sweden': '🇸🇪',
+    'Austria': '🇦🇹',
+    'Turkey': '🇹🇷',
+    'Scotland': '🏴󠁧󠁢󠁳󠁣󠁴󠁿',
+    'Ecuador': '🇪🇨',
+    'Paraguay': '🇵🇾',
+    'Algeria': '🇩🇿',
+    'Egypt': '🇪🇬',
+    'Ivory Coast': '🇨🇮',
+    'Ghana': '🇬🇭',
+    'Saudi Arabia': '🇸🇦',
+    'Iran': '🇮🇷',
+    'New Zealand': '🇳🇿',
+    'Bosnia and Herzegovina': '🇧🇦',
+    'Cabo Verde': '🇨🇻',
+    'Curaçao': '🇨🇼',
+    'Czechia': '🇨🇿',
+    'DR Congo': '🇨🇩',
+    'Haiti': '🇭🇹',
+    'Iraq': '🇮🇶',
+    'Jordan': '🇯🇴',
+    'Panama': '🇵🇦',
+    'Qatar': '🇶🇦',
+    'South Africa': '🇿🇦',
+    'Tunisia': '🇹🇳',
+    'Uzbekistan': '🇺🇿',
+    'International': '⚽'
+};
+
+const TEAM_FLAG_COLORS: { [key: string]: string[] } = {
+    'United States': ['#3C3B6E', '#FFFFFF', '#B22234'], // Blue, White, Red
+    'Mexico': ['#006847', '#FFFFFF', '#C8102E'], // Green, White, Red
+    'Canada': ['#FF0000', '#FFFFFF', '#FF0000'], // Red, White, Red
+    'Argentina': ['#75AADB', '#FFFFFF', '#75AADB'], // Sky Blue, White, Sky Blue
+    'Brazil': ['#009739', '#FEDF00', '#002776'], // Green, Yellow, Blue
+    'France': ['#002395', '#FFFFFF', '#ED2939'], // Blue, White, Red
+    'England': ['#FFFFFF', '#CE1124', '#FFFFFF'], // White, Red, White
+    'Spain': ['#C11B17', '#FBBF24', '#C11B17'], // Red, Gold, Red
+    'Portugal': ['#046A38', '#DA291C'], // Green, Red
+    'Germany': ['#000000', '#FF0000', '#FFCC00'], // Black, Red, Gold
+    'Netherlands': ['#AE1C28', '#FFFFFF', '#21468B', '#F17300'], // Red, White, Blue, Orange
+    'Norway': ['#BA0C2F', '#FFFFFF', '#003087'], // Red, White, Blue
+    'Belgium': ['#000000', '#FDDA24', '#EF3340'], // Black, Yellow, Red
+    'Uruguay': ['#0038A8', '#FFFFFF', '#FCD116'], // Blue, White, Yellow
+    'Colombia': ['#FCD116', '#0038A8', '#CE1124'], // Yellow, Blue, Red
+    'Morocco': ['#C1272D', '#006233', '#C1272D'], // Red, Green, Red
+    'Senegal': ['#00853F', '#FDEF42', '#E31B23'], // Green, Yellow, Red
+    'Japan': ['#FFFFFF', '#BC002D', '#FFFFFF'], // White, Red, White
+    'South Korea': ['#FFFFFF', '#CD2E3A', '#0047A0'], // White, Red, Blue
+    'Australia': ['#012169', '#FF0000', '#FFFFFF', '#00843D', '#FFCD00'], // Blue, Red, Green, Gold
+    'Croatia': ['#FF0000', '#FFFFFF', '#171796'], // Red, White, Blue
+    'Switzerland': ['#D52B1E', '#FFFFFF', '#D52B1E'], // Red, White
+    'Sweden': ['#006AA7', '#FECC00'], // Blue, Yellow
+    'Austria': ['#ED2939', '#FFFFFF', '#ED2939'], // Red, White, Red
+    'Turkey': ['#E30A17', '#FFFFFF'], // Red, White
+    'Scotland': ['#005EB8', '#FFFFFF'], // Blue, White
+    'Ecuador': ['#FFD100', '#003F87', '#EF3340'], // Yellow, Blue, Red
+    'Paraguay': ['#D52B1E', '#FFFFFF', '#0038A8'], // Red, White, Blue
+    'Algeria': ['#006633', '#FFFFFF', '#D21034'], // Green, White, Red
+    'Egypt': ['#C8102E', '#FFFFFF', '#000000'], // Red, White, Black
+    'Ivory Coast': ['#F77F00', '#FFFFFF', '#009E60'], // Orange, White, Green
+    'Ghana': ['#CE1124', '#FCD116', '#006B3F'], // Red, Yellow, Green
+    'Saudi Arabia': ['#006C35', '#FFFFFF'], // Green, White
+    'Iran': ['#239F40', '#FFFFFF', '#DA121A'], // Green, White, Red
+    'New Zealand': ['#000000', '#FFFFFF', '#C8102E'], // Black, White, Red
+    'Bosnia and Herzegovina': ['#001F3F', '#FECB00', '#FFFFFF'], // Blue, Gold, White
+    'Cabo Verde': ['#003893', '#FFFFFF', '#CF2027', '#F7D116'], // Blue, White, Red, Yellow
+    'Curaçao': ['#002B7F', '#FFFFFF', '#FED141'], // Blue, White, Yellow
+    'Czechia': ['#11457E', '#FFFFFF', '#D7141A'], // Blue, White, Red
+    'DR Congo': ['#007FFF', '#CE1126', '#F7D618'], // Blue, Red, Yellow
+    'Haiti': ['#00209F', '#D21034', '#FFFFFF'], // Blue, Red, White
+    'Iraq': ['#CE1126', '#FFFFFF', '#007A3D'], // Red, White, Green
+    'Jordan': ['#CE1126', '#FFFFFF', '#007A3D', '#000000'], // Red, White, Green, Black
+    'Panama': ['#FFFFFF', '#CE1126', '#005294'], // White, Red, Blue
+    'Qatar': ['#8C1B1B', '#FFFFFF'], // Maroon, White
+    'South Africa': ['#DE3831', '#FFFFFF', '#002395', '#FFB81C', '#007A4D'], // Red, White, Blue, Yellow, Green
+    'Tunisia': ['#E70013', '#FFFFFF'], // Red, White
+    'Uzbekistan': ['#0099B5', '#FFFFFF', '#1EB53A', '#CE1126'], // Blue, White, Green, Red
+    'International': ['#10B981', '#6366F1'] // Default emerald to indigo
+};
+
+export default function Trades() {
+    const { user } = useAuth();
+    const [searchParams] = useSearchParams();
+    const navigate = useNavigate();
+    const needStickerId = searchParams.get('need');
+    const [stickers, setStickers] = useState<Sticker[]>([]);
+    const [searchVal, setSearchVal] = useState('');
+    const [searchResults, setSearchResults] = useState<any[] | null>(null);
+    const [swapData, setSwapData] = useState<{ needSticker: any; options: any[] } | null>(null);
+    const [loadingSwap, setLoadingSwap] = useState(false);
+    const [executingSwap, setExecutingSwap] = useState<string | null>(null);
+
+    useEffect(() => {
+        if (!user?.id) return;
+        api.get('/my-stickers', user.id)
+           .then(data => setStickers(data.userStickers || []))
+           .catch(console.error);
+    }, [user?.id]);
+
+    useEffect(() => {
+        if (!needStickerId || !user?.id) {
+            setSwapData(null);
+            return;
+        }
+        setLoadingSwap(true);
+        api.post('/swaps/find', { stickerId: needStickerId }, user.id)
+           .then(data => setSwapData(data))
+           .catch(err => toast.error(err.message))
+           .finally(() => setLoadingSwap(false));
+    }, [needStickerId, user?.id]);
+
+    const dupMap = new Map<string, { sticker: Sticker; count: number }>();
+    for (const s of stickers) {
+      const key = s.sticker_id;
+      if (dupMap.has(key)) { dupMap.get(key)!.count++; }
+      else { dupMap.set(key, { sticker: s, count: 1 }); }
+    }
+    const duplicates = Array.from(dupMap.values()).filter(d => d.count >= 2).map(d => ({ ...d.sticker, is_duplicate: d.count }));
+
+    const handleSearch = () => {
+        if (!searchVal.trim()) {
+            toast.error("Please insert a player's nickname");
+            return;
+        }
+
+        // Mock lookup/search details matching world cup players
+        const mockFinds = [
+            { nickname: 'FootballPro99', country: 'Brazil', active_duplicates: ['S001', 'S003'], seeks: ['S002'] },
+            { nickname: 'Messi_Fanatic', country: 'Argentina', active_duplicates: ['S004', 'S005'], seeks: ['S001'] },
+        ].filter(p => p.nickname.toLowerCase().includes(searchVal.toLowerCase()));
+
+        setSearchResults(mockFinds);
+        if (mockFinds.length === 0) {
+            toast.info(`No other collectors named "${searchVal}" found right now.`);
+        } else {
+            toast.success(`Found ${mockFinds.length} listing matches!`);
+        }
+    }
+
+    const proposeTrade = (p: any) => {
+        toast.success(`Trade proposal requested to ${p.nickname}! They will review your swap cards!`);
+    }
+
+    const executeSwap = async (partnerUserId: string, partnerNickname: string, giveStickerId: string, giveName: string) => {
+        if (!needStickerId || !user?.id || !partnerUserId) return;
+        const key = `${partnerUserId}-${giveStickerId}`;
+        setExecutingSwap(key);
+        try {
+            await api.post('/swaps/execute', { partnerUserId, myNeedStickerId: needStickerId, iGiveStickerId: giveStickerId }, user.id);
+            toast.success(`Swapped! You got ${swapData?.needSticker?.name || 'the sticker'} and gave ${giveName} to ${partnerNickname}`);
+            navigate('/catalog');
+        } catch (err: any) {
+            toast.error(err.message);
+        } finally {
+            setExecutingSwap(null);
+        }
+    }
+
+    return (
+        <div className="space-y-8 max-w-5xl mx-auto pt-4 animate-in fade-in">
+             <header className="border-b border-white/10 pb-6">
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-[#10B981] flex items-center gap-1.5 mb-2">
+                   <ArrowRightLeft className="h-4 w-4" /> Global Swap Deal Network
+                </span>
+                <h1 className="text-3xl lg:text-4xl font-black text-white uppercase italic tracking-tight">Trade Center</h1>
+                <p className="text-sm text-slate-400 font-medium">Exchange your compiled duplicate stickers with other user clubs around the globe.</p>
+             </header>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+                  {/* Swap options (when ?need= is set) or Search */}
+                  <Card className="bg-slate-900/40 border border-white/10 rounded-[2rem] md:col-span-2 backdrop-blur-md">
+                  {needStickerId && swapData ? (
+                      <>
+                      <CardHeader>
+                          <div className="flex items-center justify-between">
+                              <div>
+                                  <CardTitle className="text-xl font-black uppercase text-white tracking-tight italic">Swap Options</CardTitle>
+                                  <CardDescription className="text-slate-400">
+                                      You need: <span className="text-emerald-400 font-bold">{swapData.needSticker?.name}</span>
+                                      {' '}({swapData.needSticker?.rarity} &middot; {swapData.needSticker?.category})
+                                  </CardDescription>
+                              </div>
+                              <button
+                                  type="button"
+                                  onClick={() => navigate('/catalog')}
+                                  className="text-[10px] text-slate-400 hover:text-white bg-slate-950 px-3 py-1.5 rounded-xl border border-white/10 font-bold uppercase tracking-wider transition-all cursor-pointer"
+                              >
+                                  &larr; Catalog
+                              </button>
+                          </div>
+                      </CardHeader>
+                      <CardContent className="space-y-4">
+                          {swapData.options.length === 0 ? (
+                              <div className="py-16 text-center text-slate-500 border border-white/5 border-dashed rounded-3xl bg-slate-950/40 px-6">
+                                  <p className="text-slate-400 font-bold mb-1">No trading partners available</p>
+                                  <p className="text-xs text-slate-500">No collectors have this sticker and need your duplicates right now.</p>
+                              </div>
+                          ) : (
+                              swapData.options.map((group: any) => (
+                                  <div key={group.partner.id} className="space-y-3">
+                                      <div className="flex items-center gap-2 text-sm">
+                                          <span className="font-extrabold text-white">{group.partner.nickname}</span>
+                                          <span className="text-[10px] text-slate-400 font-mono">{group.partner.country}</span>
+                                          <span className="text-[10px] text-amber-400 font-black">Lv.{group.partner.level}</span>
+                                      </div>
+                                      <div className="flex flex-wrap gap-2">
+                                          {group.trades.map((t: any) => (
+                                              <div
+                                                  key={t.giveSticker.id}
+                                                  className="flex items-center gap-2 bg-slate-950/80 border border-white/10 hover:border-emerald-500/40 rounded-xl p-3 transition-all"
+                                              >
+                                                  <div className="flex-1 min-w-0">
+                                                      <div className="flex items-center gap-1.5">
+                                                          <span className={`text-[9px] font-black uppercase px-1 py-0.5 rounded ${
+                                                              t.giveSticker.rarity === 'Legendary' ? 'bg-amber-500 text-slate-950' :
+                                                              t.giveSticker.rarity === 'Epic' ? 'bg-purple-500 text-white' :
+                                                              t.giveSticker.rarity === 'Rare' ? 'bg-blue-500 text-white' :
+                                                              'bg-slate-800 text-slate-300'
+                                                          }`}>{t.giveSticker.rarity}</span>
+                                                          <span className="text-xs font-bold text-white truncate">{t.giveSticker.name}</span>
+                                                      </div>
+                                                      <div className="text-[9px] text-slate-500 font-mono mt-0.5">
+                                                          {t.duplicatesCount}x dup &middot; {t.giveSticker.category}
+                                                          {t.giveSticker.country && ` \u00b7 ${t.giveSticker.country}`}
+                                                      </div>
+                                                  </div>
+                                                  <Button
+                                                      type="button"
+                                                      disabled={executingSwap === `${group.partner.id}-${t.giveSticker.id}`}
+                                                      onClick={() => executeSwap(group.partner.id, group.partner.nickname, t.giveSticker.id, t.giveSticker.name)}
+                                                      className="bg-amber-500 hover:bg-amber-400 text-slate-950 font-black px-3 py-1.5 rounded-xl text-[10px] uppercase tracking-wider h-auto flex-shrink-0 disabled:opacity-50"
+                                                  >
+                                                      {executingSwap === `${group.partner.id}-${t.giveSticker.id}` ? (
+                                                          <RefreshCw className="h-3 w-3 animate-spin" />
+                                                      ) : (
+                                                          'Swap'
+                                                      )}
+                                                  </Button>
+                                              </div>
+                                          ))}
+                                      </div>
+                                  </div>
+                              ))
+                          )}
+                      </CardContent>
+                      </>
+                  ) : needStickerId && loadingSwap ? (
+                      <>
+                      <CardHeader>
+                          <CardTitle className="text-xl font-black uppercase text-white tracking-tight italic">Finding Swaps...</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                          <div className="flex items-center justify-center py-16">
+                              <RefreshCw className="h-6 w-6 text-emerald-400 animate-spin" />
+                          </div>
+                      </CardContent>
+                      </>
+                  ) : (
+                      <>
+                      <CardHeader>
+                          <CardTitle className="text-xl font-black uppercase text-white tracking-tight italic">Find Trades</CardTitle>
+                          <CardDescription className="text-slate-400">Search for collectors by nickname to initiate safe sticker swaps</CardDescription>
+                      </CardHeader>
+                      <CardContent className="space-y-6">
+                          <div className="flex flex-col sm:flex-row gap-4">
+                               <div className="relative flex-1">
+                                   <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-500" />
+                                   <Input 
+                                       value={searchVal}
+                                       onChange={(e) => setSearchVal(e.target.value)}
+                                       placeholder="Search player nickname..." 
+                                       className="bg-slate-950 border-white/10 pl-11 rounded-xl text-white py-5 h-auto font-medium"
+                                   />
+                               </div>
+                               <Button onClick={handleSearch} className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black rounded-xl uppercase tracking-wider px-6 py-4 h-auto">
+                                  Find Collector
+                               </Button>
+                          </div>
+
+                          {searchResults && searchResults.length > 0 ? (
+                              <div className="space-y-4">
+                                  <h3 className="text-xs uppercase font-extrabold tracking-widest text-[#10B981]">Matching Collectors List</h3>
+                                  <div className="grid grid-cols-1 gap-4">
+                                      {searchResults.map((p, i) => (
+                                          <div key={i} className="p-5 rounded-2xl border border-white/10 bg-slate-950/50 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                                              <div>
+                                                  <span className="font-extrabold text-white text-base block">{p.nickname}</span>
+                                                  <span className="text-xs text-slate-400 font-mono block mb-2">{p.country}</span>
+                                                  <div className="flex gap-2 text-[10px] items-center">
+                                                      <span className="text-emerald-400 font-bold uppercase">Duplicates:</span>
+                                                      <span className="text-slate-300 font-mono tracking-wider bg-slate-900 px-2 py-0.5 rounded border border-white/5">{p.active_duplicates.join(', ')}</span>
+                                                  </div>
+                                              </div>
+                                              <Button onClick={() => proposeTrade(p)} className="bg-indigo-600 hover:bg-indigo-500 text-white font-extrabold px-5 rounded-xl text-xs uppercase tracking-wide">
+                                                   Propose Swap
+                                              </Button>
+                                          </div>
+                                      ))}
+                                  </div>
+                              </div>
+                          ) : (
+                              <div className="py-16 text-center text-slate-500 border border-white/5 border-dashed rounded-3xl bg-slate-950/40 px-6">
+                                  <p className="text-slate-400 font-bold mb-1">Search collector community rosters...</p>
+                                  <p className="text-xs text-slate-500">Insert any nick (e.g., &quot;Football&quot;, &quot;Messi&quot;) to trigger available swaps.</p>
+                              </div>
+                          )}
+                      </CardContent>
+                      </>
+                  )}
+                  </Card>
+
+                  {/* Your duplicate inventory panel */}
+                  <Card className="bg-slate-900/40 border border-white/10 rounded-[2rem] backdrop-blur-md font-sans">
+                      <CardHeader>
+                          <CardTitle className="text-xl font-black uppercase text-white tracking-tight italic">Your Swap Cards</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                           {duplicates.length > 0 ? (
+                               <div className="grid grid-cols-2 gap-3">
+                                   {duplicates.map((sticker, i) => (
+                                        <div 
+                                             key={i} 
+                                             className="relative p-2.5 rounded-xl border border-white/10 overflow-hidden flex flex-col justify-end aspect-[3/4] group shadow-lg"
+                                        >
+                                             {/* Flag colors strip under the top edge */}
+                                             {sticker.country && sticker.country !== 'International' && TEAM_FLAG_COLORS[sticker.country] && (
+                                                 <div className="absolute top-0 left-0 right-0 h-1 flex overflow-hidden z-20">
+                                                     {TEAM_FLAG_COLORS[sticker.country].map((col, idx) => (
+                                                         <div key={idx} className="flex-1 h-full" style={{ backgroundColor: col }} />
+                                                     ))}
+                                                 </div>
+                                             )}
+                                             {/* Background image preview */}
+                                             <div className="absolute inset-0">
+                                                 <img 
+                                                     src={getStickerPhotoUrl(sticker.sticker_id, sticker.category, sticker.image)} 
+                                                     alt={sticker.name} 
+                                                     referrerPolicy="no-referrer"
+                                                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                                 />
+                                                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent" />
+                                             </div>
+                                             
+                                             <div className="relative z-10 space-y-1 text-left">
+                                                 <div className="flex justify-between items-center gap-1">
+                                                     <span className={`text-[8px] px-1.5 py-0.5 rounded font-black uppercase tracking-wider block w-fit ${
+                                                          sticker.rarity === 'Legendary' ? 'bg-[#F59E0B] text-slate-950' :
+                                                          sticker.rarity === 'Epic' ? 'bg-purple-500 text-white' :
+                                                          sticker.rarity === 'Rare' ? 'bg-blue-500 text-white' :
+                                                          'bg-slate-800 text-slate-300'
+                                                     }`}>
+                                                         {sticker.rarity}
+                                                     </span>
+                                                     {sticker.country && (
+                                                         <span className="text-xs" title={sticker.country}>
+                                                             {TEAM_FLAGS[sticker.country] || '⚽'}
+                                                         </span>
+                                                     )}
+                                                 </div>
+                                                 <h4 className="font-extrabold text-[10px] text-white line-clamp-2 uppercase tracking-tight italic drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] leading-tight">
+                                                     {sticker.name}
+                                                 </h4>
+                                             </div>
+                                        </div>
+                                   ))}
+                               </div>
+                           ) : (
+                               <div className="py-16 text-center text-slate-500 bg-slate-950/40 rounded-3xl border border-white/5 px-4">
+                                   <p className="font-bold text-slate-400">Duplicates Empty</p>
+                                   <p className="text-[11px] text-slate-500 mt-1 max-w-[180px] mx-auto">Collect more stickers from standard/elite store packs to generate swap items!</p>
+                               </div>
+                           )}
+                      </CardContent>
+                  </Card>
+              </div>
+        </div>
+    )
+}

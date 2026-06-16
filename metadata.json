@@ -1,0 +1,6 @@
+{
+  "name": "World Cup 2026 Digital Sticker Challenge",
+  "description": "An immersive digital sticker collection, football trivia quiz, and trading card platform built with Vite, React and SQLite database storage.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
