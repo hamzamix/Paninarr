@@ -585,7 +585,7 @@ if (stickersCount.count === 0) {
     const adminId = 'admin';
     const existingAdmin = db.prepare('SELECT id FROM users WHERE id = ?').get(adminId);
     if (!existingAdmin) {
-      const adminRecoveryCode = 'ADMIN-0000-0000-0000';
+      const adminRecoveryCode = 'ADMIN-64K5-82D9-58R1';
       const adminDate = new Date().toISOString();
       db.prepare('INSERT INTO users (id, nickname, recovery_code, join_date, country, avatar, coins, xp, last_login) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)')
         .run(adminId, 'Admin', adminRecoveryCode, adminDate, 'International', '', 999999, 999999, adminDate);
@@ -600,7 +600,7 @@ if (stickersCount.count === 0) {
         }
       };
       db.transaction(seedAdminStickers)();
-      console.log(`Seeded admin account with ${allStickers.length} stickers! Recovery code: ADMIN-0000-0000-0000`);
+      console.log(`Seeded admin account with ${allStickers.length} stickers! Recovery code: ADMIN-64K5-82D9-58R1`);
     }
 
   } catch (err) {
