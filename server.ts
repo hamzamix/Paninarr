@@ -1905,7 +1905,7 @@ app.post('/api/admin/cache-fifa-photos', async (req, res) => {
         const ext = 'jpg';
         const localPath = `/fifa-cache/${stickerId}.${ext}`;
         fs.writeFileSync(path.join(cacheDir, `${stickerId}.${ext}`), buffer);
-        overrides[stickerId] = { ...ov, cdnUrl: ov.url, url: localPath };
+        overrides[stickerId] = { ...ov, url: localPath };
         results.cached++;
         results.details.push({ stickerId, status: 'cached', url: localPath });
       } catch (e: any) {
@@ -1938,7 +1938,7 @@ app.post('/api/admin/set-image', async (req, res) => {
         const ext = 'jpg';
         const localPath = `/fifa-cache/${stickerId}.${ext}`;
         fs.writeFileSync(path.join(cacheDir, `${stickerId}.${ext}`), buffer);
-        overrides[stickerId] = { url: localPath, cdnUrl: imageUrl, position: position || 'center center' };
+        overrides[stickerId] = { url: localPath, position: position || 'center center' };
         saveManualOverrides(overrides);
         return res.json({ ok: true, stickerId, imageUrl: localPath, cdnUrl: imageUrl, position: overrides[stickerId].position });
       }
