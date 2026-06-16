@@ -1,0 +1,1393 @@
+{
+  "initialized": true,
+  "currentRound": "group",
+  "groups": [
+    {
+      "name": "A",
+      "teams": [
+        {
+          "team": "Mexico",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        },
+        {
+          "team": "South Korea",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        },
+        {
+          "team": "South Africa",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        },
+        {
+          "team": "Czechia",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        }
+      ]
+    },
+    {
+      "name": "B",
+      "teams": [
+        {
+          "team": "Canada",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        },
+        {
+          "team": "Switzerland",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        },
+        {
+          "team": "Qatar",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        },
+        {
+          "team": "Bosnia and Herzegovina",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        }
+      ]
+    },
+    {
+      "name": "C",
+      "teams": [
+        {
+          "team": "Brazil",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        },
+        {
+          "team": "Morocco",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        },
+        {
+          "team": "Haiti",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        },
+        {
+          "team": "Scotland",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        }
+      ]
+    },
+    {
+      "name": "D",
+      "teams": [
+        {
+          "team": "United States",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        },
+        {
+          "team": "Paraguay",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        },
+        {
+          "team": "Australia",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        },
+        {
+          "team": "Türkiye",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        }
+      ]
+    },
+    {
+      "name": "E",
+      "teams": [
+        {
+          "team": "Germany",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        },
+        {
+          "team": "Ecuador",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        },
+        {
+          "team": "Ivory Coast",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        },
+        {
+          "team": "Curaçao",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        }
+      ]
+    },
+    {
+      "name": "F",
+      "teams": [
+        {
+          "team": "Netherlands",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        },
+        {
+          "team": "Japan",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        },
+        {
+          "team": "Tunisia",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        },
+        {
+          "team": "Sweden",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        }
+      ]
+    },
+    {
+      "name": "G",
+      "teams": [
+        {
+          "team": "Belgium",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        },
+        {
+          "team": "Iran",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        },
+        {
+          "team": "Egypt",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        },
+        {
+          "team": "New Zealand",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        }
+      ]
+    },
+    {
+      "name": "H",
+      "teams": [
+        {
+          "team": "Spain",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        },
+        {
+          "team": "Uruguay",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        },
+        {
+          "team": "Saudi Arabia",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        },
+        {
+          "team": "Cabo Verde",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        }
+      ]
+    },
+    {
+      "name": "I",
+      "teams": [
+        {
+          "team": "France",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        },
+        {
+          "team": "Senegal",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        },
+        {
+          "team": "Norway",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        },
+        {
+          "team": "Iraq",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        }
+      ]
+    },
+    {
+      "name": "J",
+      "teams": [
+        {
+          "team": "Argentina",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        },
+        {
+          "team": "Austria",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        },
+        {
+          "team": "Algeria",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        },
+        {
+          "team": "Jordan",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        }
+      ]
+    },
+    {
+      "name": "K",
+      "teams": [
+        {
+          "team": "Portugal",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        },
+        {
+          "team": "Colombia",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        },
+        {
+          "team": "Uzbekistan",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        },
+        {
+          "team": "DR Congo",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        }
+      ]
+    },
+    {
+      "name": "L",
+      "teams": [
+        {
+          "team": "England",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        },
+        {
+          "team": "Croatia",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        },
+        {
+          "team": "Ghana",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        },
+        {
+          "team": "Panama",
+          "played": 0,
+          "won": 0,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 0,
+          "ga": 0,
+          "gd": 0,
+          "pts": 0
+        }
+      ]
+    }
+  ],
+  "matches": [
+    {
+      "id": "group-A-0-1",
+      "round": "group",
+      "groupName": "A",
+      "matchNumber": 0,
+      "teamA": "Mexico",
+      "teamB": "South Korea",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-A-0-2",
+      "round": "group",
+      "groupName": "A",
+      "matchNumber": 1,
+      "teamA": "Mexico",
+      "teamB": "South Africa",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-A-0-3",
+      "round": "group",
+      "groupName": "A",
+      "matchNumber": 2,
+      "teamA": "Mexico",
+      "teamB": "Czechia",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-A-1-2",
+      "round": "group",
+      "groupName": "A",
+      "matchNumber": 3,
+      "teamA": "South Korea",
+      "teamB": "South Africa",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-A-1-3",
+      "round": "group",
+      "groupName": "A",
+      "matchNumber": 4,
+      "teamA": "South Korea",
+      "teamB": "Czechia",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-A-2-3",
+      "round": "group",
+      "groupName": "A",
+      "matchNumber": 5,
+      "teamA": "South Africa",
+      "teamB": "Czechia",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-B-0-1",
+      "round": "group",
+      "groupName": "B",
+      "matchNumber": 6,
+      "teamA": "Canada",
+      "teamB": "Switzerland",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-B-0-2",
+      "round": "group",
+      "groupName": "B",
+      "matchNumber": 7,
+      "teamA": "Canada",
+      "teamB": "Qatar",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-B-0-3",
+      "round": "group",
+      "groupName": "B",
+      "matchNumber": 8,
+      "teamA": "Canada",
+      "teamB": "Bosnia and Herzegovina",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-B-1-2",
+      "round": "group",
+      "groupName": "B",
+      "matchNumber": 9,
+      "teamA": "Switzerland",
+      "teamB": "Qatar",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-B-1-3",
+      "round": "group",
+      "groupName": "B",
+      "matchNumber": 10,
+      "teamA": "Switzerland",
+      "teamB": "Bosnia and Herzegovina",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-B-2-3",
+      "round": "group",
+      "groupName": "B",
+      "matchNumber": 11,
+      "teamA": "Qatar",
+      "teamB": "Bosnia and Herzegovina",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-C-0-1",
+      "round": "group",
+      "groupName": "C",
+      "matchNumber": 12,
+      "teamA": "Brazil",
+      "teamB": "Morocco",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-C-0-2",
+      "round": "group",
+      "groupName": "C",
+      "matchNumber": 13,
+      "teamA": "Brazil",
+      "teamB": "Haiti",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-C-0-3",
+      "round": "group",
+      "groupName": "C",
+      "matchNumber": 14,
+      "teamA": "Brazil",
+      "teamB": "Scotland",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-C-1-2",
+      "round": "group",
+      "groupName": "C",
+      "matchNumber": 15,
+      "teamA": "Morocco",
+      "teamB": "Haiti",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-C-1-3",
+      "round": "group",
+      "groupName": "C",
+      "matchNumber": 16,
+      "teamA": "Morocco",
+      "teamB": "Scotland",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-C-2-3",
+      "round": "group",
+      "groupName": "C",
+      "matchNumber": 17,
+      "teamA": "Haiti",
+      "teamB": "Scotland",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-D-0-1",
+      "round": "group",
+      "groupName": "D",
+      "matchNumber": 18,
+      "teamA": "United States",
+      "teamB": "Paraguay",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-D-0-2",
+      "round": "group",
+      "groupName": "D",
+      "matchNumber": 19,
+      "teamA": "United States",
+      "teamB": "Australia",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-D-0-3",
+      "round": "group",
+      "groupName": "D",
+      "matchNumber": 20,
+      "teamA": "United States",
+      "teamB": "Türkiye",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-D-1-2",
+      "round": "group",
+      "groupName": "D",
+      "matchNumber": 21,
+      "teamA": "Paraguay",
+      "teamB": "Australia",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-D-1-3",
+      "round": "group",
+      "groupName": "D",
+      "matchNumber": 22,
+      "teamA": "Paraguay",
+      "teamB": "Türkiye",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-D-2-3",
+      "round": "group",
+      "groupName": "D",
+      "matchNumber": 23,
+      "teamA": "Australia",
+      "teamB": "Türkiye",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-E-0-1",
+      "round": "group",
+      "groupName": "E",
+      "matchNumber": 24,
+      "teamA": "Germany",
+      "teamB": "Ecuador",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-E-0-2",
+      "round": "group",
+      "groupName": "E",
+      "matchNumber": 25,
+      "teamA": "Germany",
+      "teamB": "Ivory Coast",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-E-0-3",
+      "round": "group",
+      "groupName": "E",
+      "matchNumber": 26,
+      "teamA": "Germany",
+      "teamB": "Curaçao",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-E-1-2",
+      "round": "group",
+      "groupName": "E",
+      "matchNumber": 27,
+      "teamA": "Ecuador",
+      "teamB": "Ivory Coast",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-E-1-3",
+      "round": "group",
+      "groupName": "E",
+      "matchNumber": 28,
+      "teamA": "Ecuador",
+      "teamB": "Curaçao",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-E-2-3",
+      "round": "group",
+      "groupName": "E",
+      "matchNumber": 29,
+      "teamA": "Ivory Coast",
+      "teamB": "Curaçao",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-F-0-1",
+      "round": "group",
+      "groupName": "F",
+      "matchNumber": 30,
+      "teamA": "Netherlands",
+      "teamB": "Japan",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-F-0-2",
+      "round": "group",
+      "groupName": "F",
+      "matchNumber": 31,
+      "teamA": "Netherlands",
+      "teamB": "Tunisia",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-F-0-3",
+      "round": "group",
+      "groupName": "F",
+      "matchNumber": 32,
+      "teamA": "Netherlands",
+      "teamB": "Sweden",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-F-1-2",
+      "round": "group",
+      "groupName": "F",
+      "matchNumber": 33,
+      "teamA": "Japan",
+      "teamB": "Tunisia",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-F-1-3",
+      "round": "group",
+      "groupName": "F",
+      "matchNumber": 34,
+      "teamA": "Japan",
+      "teamB": "Sweden",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-F-2-3",
+      "round": "group",
+      "groupName": "F",
+      "matchNumber": 35,
+      "teamA": "Tunisia",
+      "teamB": "Sweden",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-G-0-1",
+      "round": "group",
+      "groupName": "G",
+      "matchNumber": 36,
+      "teamA": "Belgium",
+      "teamB": "Iran",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-G-0-2",
+      "round": "group",
+      "groupName": "G",
+      "matchNumber": 37,
+      "teamA": "Belgium",
+      "teamB": "Egypt",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-G-0-3",
+      "round": "group",
+      "groupName": "G",
+      "matchNumber": 38,
+      "teamA": "Belgium",
+      "teamB": "New Zealand",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-G-1-2",
+      "round": "group",
+      "groupName": "G",
+      "matchNumber": 39,
+      "teamA": "Iran",
+      "teamB": "Egypt",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-G-1-3",
+      "round": "group",
+      "groupName": "G",
+      "matchNumber": 40,
+      "teamA": "Iran",
+      "teamB": "New Zealand",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-G-2-3",
+      "round": "group",
+      "groupName": "G",
+      "matchNumber": 41,
+      "teamA": "Egypt",
+      "teamB": "New Zealand",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-H-0-1",
+      "round": "group",
+      "groupName": "H",
+      "matchNumber": 42,
+      "teamA": "Spain",
+      "teamB": "Uruguay",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-H-0-2",
+      "round": "group",
+      "groupName": "H",
+      "matchNumber": 43,
+      "teamA": "Spain",
+      "teamB": "Saudi Arabia",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-H-0-3",
+      "round": "group",
+      "groupName": "H",
+      "matchNumber": 44,
+      "teamA": "Spain",
+      "teamB": "Cabo Verde",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-H-1-2",
+      "round": "group",
+      "groupName": "H",
+      "matchNumber": 45,
+      "teamA": "Uruguay",
+      "teamB": "Saudi Arabia",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-H-1-3",
+      "round": "group",
+      "groupName": "H",
+      "matchNumber": 46,
+      "teamA": "Uruguay",
+      "teamB": "Cabo Verde",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-H-2-3",
+      "round": "group",
+      "groupName": "H",
+      "matchNumber": 47,
+      "teamA": "Saudi Arabia",
+      "teamB": "Cabo Verde",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-I-0-1",
+      "round": "group",
+      "groupName": "I",
+      "matchNumber": 48,
+      "teamA": "France",
+      "teamB": "Senegal",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-I-0-2",
+      "round": "group",
+      "groupName": "I",
+      "matchNumber": 49,
+      "teamA": "France",
+      "teamB": "Norway",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-I-0-3",
+      "round": "group",
+      "groupName": "I",
+      "matchNumber": 50,
+      "teamA": "France",
+      "teamB": "Iraq",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-I-1-2",
+      "round": "group",
+      "groupName": "I",
+      "matchNumber": 51,
+      "teamA": "Senegal",
+      "teamB": "Norway",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-I-1-3",
+      "round": "group",
+      "groupName": "I",
+      "matchNumber": 52,
+      "teamA": "Senegal",
+      "teamB": "Iraq",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-I-2-3",
+      "round": "group",
+      "groupName": "I",
+      "matchNumber": 53,
+      "teamA": "Norway",
+      "teamB": "Iraq",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-J-0-1",
+      "round": "group",
+      "groupName": "J",
+      "matchNumber": 54,
+      "teamA": "Argentina",
+      "teamB": "Austria",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-J-0-2",
+      "round": "group",
+      "groupName": "J",
+      "matchNumber": 55,
+      "teamA": "Argentina",
+      "teamB": "Algeria",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-J-0-3",
+      "round": "group",
+      "groupName": "J",
+      "matchNumber": 56,
+      "teamA": "Argentina",
+      "teamB": "Jordan",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-J-1-2",
+      "round": "group",
+      "groupName": "J",
+      "matchNumber": 57,
+      "teamA": "Austria",
+      "teamB": "Algeria",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-J-1-3",
+      "round": "group",
+      "groupName": "J",
+      "matchNumber": 58,
+      "teamA": "Austria",
+      "teamB": "Jordan",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-J-2-3",
+      "round": "group",
+      "groupName": "J",
+      "matchNumber": 59,
+      "teamA": "Algeria",
+      "teamB": "Jordan",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-K-0-1",
+      "round": "group",
+      "groupName": "K",
+      "matchNumber": 60,
+      "teamA": "Portugal",
+      "teamB": "Colombia",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-K-0-2",
+      "round": "group",
+      "groupName": "K",
+      "matchNumber": 61,
+      "teamA": "Portugal",
+      "teamB": "Uzbekistan",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-K-0-3",
+      "round": "group",
+      "groupName": "K",
+      "matchNumber": 62,
+      "teamA": "Portugal",
+      "teamB": "DR Congo",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-K-1-2",
+      "round": "group",
+      "groupName": "K",
+      "matchNumber": 63,
+      "teamA": "Colombia",
+      "teamB": "Uzbekistan",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-K-1-3",
+      "round": "group",
+      "groupName": "K",
+      "matchNumber": 64,
+      "teamA": "Colombia",
+      "teamB": "DR Congo",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-K-2-3",
+      "round": "group",
+      "groupName": "K",
+      "matchNumber": 65,
+      "teamA": "Uzbekistan",
+      "teamB": "DR Congo",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-L-0-1",
+      "round": "group",
+      "groupName": "L",
+      "matchNumber": 66,
+      "teamA": "England",
+      "teamB": "Croatia",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-L-0-2",
+      "round": "group",
+      "groupName": "L",
+      "matchNumber": 67,
+      "teamA": "England",
+      "teamB": "Ghana",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-L-0-3",
+      "round": "group",
+      "groupName": "L",
+      "matchNumber": 68,
+      "teamA": "England",
+      "teamB": "Panama",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-L-1-2",
+      "round": "group",
+      "groupName": "L",
+      "matchNumber": 69,
+      "teamA": "Croatia",
+      "teamB": "Ghana",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-L-1-3",
+      "round": "group",
+      "groupName": "L",
+      "matchNumber": 70,
+      "teamA": "Croatia",
+      "teamB": "Panama",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    },
+    {
+      "id": "group-L-2-3",
+      "round": "group",
+      "groupName": "L",
+      "matchNumber": 71,
+      "teamA": "Ghana",
+      "teamB": "Panama",
+      "scoreA": null,
+      "scoreB": null,
+      "played": 0
+    }
+  ],
+  "advancingTeams": [],
+  "eliminatedTeams": [],
+  "winner": null,
+  "roundOf32Pairings": [],
+  "regenerationsUsed": 0
+}
