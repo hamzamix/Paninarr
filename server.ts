@@ -10,7 +10,7 @@ app.use(express.json({ limit: '50mb' }));
 app.use(express.static(path.join(process.cwd(), 'public')));
 
 // Initialize SQLite database
-const dbDir = process.env.VERCEL ? '/tmp/data' : path.join(process.cwd(), 'data');
+const dbDir = path.join(process.cwd(), 'data');
 if (!fs.existsSync(dbDir)) {
   fs.mkdirSync(dbDir, { recursive: true });
 }
@@ -580,31 +580,35 @@ if (stickersCount.count === 0) {
     db.transaction(generateSeedStickers)();
     console.log("Seeded 1356 authentic 2026 World Cup stickers successfully!");
 
-    // Seed admin account with all stickers unlocked
-    const adminId = 'admin';
-    const existingAdmin = db.prepare('SELECT id FROM users WHERE id = ?').get(adminId);
-    if (!existingAdmin) {
-      const adminRecoveryCode = 'ADMIN-64K5-82D9-58R1';
-      const adminDate = new Date().toISOString();
-      db.prepare('INSERT INTO users (id, nickname, recovery_code, join_date, country, avatar, coins, xp, last_login) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)')
-        .run(adminId, 'Admin', adminRecoveryCode, adminDate, 'International', '', 999999, 999999, adminDate);
-
-      const allStickers = db.prepare('SELECT id FROM stickers').all() as { id: string }[];
-      const insertAdminSticker = db.prepare('INSERT OR IGNORE INTO user_stickers (id, user_id, sticker_id, is_duplicate, created_at) VALUES (?, ?, ?, 0, ?)');
-      const seedAdminStickers = () => {
-        const now = new Date().toISOString();
-        for (const sticker of allStickers) {
-          const usId = Math.random().toString(36).substring(2, 11);
-          insertAdminSticker.run(usId, adminId, sticker.id, now);
-        }
-      };
-      db.transaction(seedAdminStickers)();
-      console.log(`Seeded admin account with ${allStickers.length} stickers! Recovery code: ADMIN-64K5-82D9-58R1`);
-    }
-
   } catch (err) {
     console.error("Failed to seed stickers:", err);
   }
+}
+
+// Update/create admin account on every startup
+const adminId = 'admin';
+const adminRecoveryCode = process.env.ADMIN_KEY || 'ADMIN-64K5-82D9-58R1';
+const existingAdmin = db.prepare('SELECT id FROM users WHERE id = ?').get(adminId);
+if (!existingAdmin) {
+  const adminDate = new Date().toISOString();
+  db.prepare('INSERT INTO users (id, nickname, recovery_code, join_date, country, avatar, coins, xp, last_login) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)')
+    .run(adminId, 'Admin', adminRecoveryCode, adminDate, 'International', '', 999999, 999999, adminDate);
+
+  const allStickers = db.prepare('SELECT id FROM stickers').all() as { id: string }[];
+  const insertAdminSticker = db.prepare('INSERT OR IGNORE INTO user_stickers (id, user_id, sticker_id, is_duplicate, created_at) VALUES (?, ?, ?, 0, ?)');
+  const seedAdminStickers = () => {
+    const now = new Date().toISOString();
+    for (const sticker of allStickers) {
+      const usId = Math.random().toString(36).substring(2, 11);
+      insertAdminSticker.run(usId, adminId, sticker.id, now);
+    }
+  };
+  db.transaction(seedAdminStickers)();
+  console.log(`Seeded admin account with ${allStickers.length} stickers! Recovery code: ${adminRecoveryCode}`);
+} else {
+  // Update admin recovery code from env var on every startup
+  db.prepare('UPDATE users SET recovery_code = ? WHERE id = ?').run(adminRecoveryCode, adminId);
+  console.log(`Admin recovery code updated to: ${adminRecoveryCode}`);
 }
 
 // Migration: rename stickers for injury/squad replacements (existing DBs)
@@ -2384,19 +2388,4 @@ async function startServer() {
   });
 }
 
-if (!process.env.VERCEL) {
-  startServer();
-}
-
-// Vercel SPA catch-all (production only)
-if (process.env.VERCEL) {
-  const distPath = path.join(process.cwd(), 'dist');
-  if (fs.existsSync(distPath)) {
-    app.use(express.static(distPath));
-    app.get('*', (req, res) => {
-      res.sendFile(path.join(distPath, 'index.html'));
-    });
-  }
-}
-
-export default app;
+startServer();
